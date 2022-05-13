@@ -1,0 +1,20 @@
+<div id="mainDiv">
+    <button (click)="clickMoney()"></button>
+    <div class="infoContainer">
+        <div>
+            <span class="green">{{ money }}</span>
+            <span>€</span>
+        </div>
+        <div>
+            <span class="green"> {{ gainPerSec }}</span>
+            <span>€ par seconde</span>
+        </div>
+    </div>
+</div>
+
+<div class="upgradesContainer">
+    <app-upgrades 
+    *ngFor="let upgrade of upgradesArray" [upgrades]="upgrade"
+    [userMoney]="money" 
+    (cost)="receive($event)"></app-upgrades>
+</div>

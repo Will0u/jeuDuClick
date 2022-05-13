@@ -1,0 +1,23 @@
+.logo{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+header{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("src/assets/imgs/header.png") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    box-shadow: 0px 6px 13px 2px rgba(0,0,0,0.25);
+}
+
+@media screen and (min-width:480px) {
+    header{height: 300px;}
+}

@@ -1,0 +1,19 @@
+
+<div id="mainDiv">
+    <div class="flex">
+        <span class="title">{{ upgrades.titre }}</span>
+        <span>{{ upgrades.desc }}</span>
+        <div>
+            <span class="green">{{ upgrades.level }} </span>
+            <span>/ {{ upgrades.levelMax }} obtenu(e)s</span>
+        </div>
+        <div>
+            <span class="green"> {{ upgrades.parSec }}</span> 
+            <span> / s</span>
+        </div>
+        
+    </div>
+    <img src="../../../assets/imgs/{{ upgrades.img }}" alt="icone">
+</div>
+<button (click)="buy()" *ngIf="upgrades.level < upgrades.levelMax">Acheter pour {{ upgrades.prix }}€</button>
+
