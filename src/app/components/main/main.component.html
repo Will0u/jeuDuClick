@@ -1,5 +1,6 @@
+<h1>Commencer à developper !</h1>
 <div id="mainDiv">
-    <button (click)="clickMoney()"></button>
+    <button (click)="clickMoney()" class="clickBtn"></button>
     <div class="infoContainer">
         <div>
             <span class="green">{{ money }}</span>
@@ -17,4 +18,22 @@
     *ngFor="let upgrade of upgradesArray" [upgrades]="upgrade"
     [userMoney]="money" 
     (cost)="receive($event)"></app-upgrades>
+</div>
+
+
+<div *ngIf="isEventActive && eventSelected">
+    <div class="modalEvent">
+        <div class="modalHeader">
+            <h1>Évènement aléatoire !</h1>
+        </div>
+        <h2>{{ eventSelected.nom }}</h2>
+        <div class="modalContainer">
+            <p>{{ eventSelected.desc }}</p>
+            <p *ngIf="eventSelected.perte" class="red"> Coût des pertes : {{ eventSelected.gain }} €</p>
+            <p *ngIf="eventSelected.gain" class="green"> Vous recevez : {{ eventSelected.gain }} €</p>
+            <p *ngIf="eventSelected.perteLevel" class="red"> Vous perdez : {{ eventSelected.perteLevel }} level.</p>
+            <p *ngIf="eventSelected.gainSec" class="red"> Vous perdez : {{ eventSelected.gainSec }} / s.</p>
+        </div>
+        <button class="closeBtn" (click)="closeModal()">Okè</button>
+    </div>
 </div>

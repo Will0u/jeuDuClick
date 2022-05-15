@@ -26,10 +26,10 @@ export class UpgradesComponent implements OnInit {
        timeOut: 2000,
      })
    } else if (this.userMoney >= this.upgrades.prix){
-    this.toastr.info(`${this.upgrades.titre} augmenté au niveau ${this.upgrades.level+1} !` , "", {
+    this.toastr.info(`${(this.upgrades.titre).toUpperCase()} augmenté au niveau ${this.upgrades.level+1} !` , "", {
       timeOut: 2000
     })
-    this.cost.emit( [this.upgrades.prix,this.upgrades.parSec] );
+    this.cost.emit( [this.upgrades.prix,this.upgrades.parSec,this.upgrades.level] );
 
     this.userMoney -= this.upgrades.prix;
 
