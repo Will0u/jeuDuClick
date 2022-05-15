@@ -5,7 +5,8 @@
     margin-top: 5rem;
     margin-bottom: 5rem;
 }
-button{
+h1{text-align: center;}
+.clickBtn{
     background-color: white;
     width: 150px;
     height: 150px;
@@ -16,12 +17,12 @@ button{
     background-repeat: no-repeat;
     transition: box-shadow .4s;
 }
-button:hover{
+.clickBtn:hover{
     box-shadow: 3px 2px 5px 100px rgba(0,0,0,0.17) inset;
     cursor: url("src/assets/cursor/cursor.cur"), pointer;
     transition: box-shadow .4s;
 }
-button:active{transform: scale(0.98);}
+.clickBtn:active{transform: scale(0.98);}
 .infoContainer{
     width: 50%;
     display: flex;
@@ -32,7 +33,27 @@ button:active{transform: scale(0.98);}
     margin-left: 1rem;
 }
 .green{color:darkgreen;font-weight: bold;}
+.red{color:darkred;font-weight: bold;}
 .upgradesContainer{margin-bottom: 5rem;}
+
+.modalEvent{
+    position: absolute;
+    top: 50%;
+    background-color: lightgray;
+    padding: 1rem;
+    border-radius: 7px;
+}
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.closeBtn{background-color: aqua;}
+.modalContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 
 @media screen and (min-width:480px) {
     .upgradesContainer{
@@ -43,3 +64,4 @@ button:active{transform: scale(0.98);}
     #mainDiv{justify-content: center;}
     .infoContainer{width: 15%;}
 }
+
