@@ -1,6 +1,6 @@
 <h1>Commencer à developper !</h1>
-<div id="mainDiv">
-    <button (click)="clickMoney()" class="clickBtn" *ngIf="!isEventActive"></button>
+<div id="mainDiv" *ngIf="!isEventActive">
+    <button (click)="clickMoney()" class="clickBtn" ></button>
     <div class="infoContainer">
         <div>
             <span class="green">{{ money.toFixed(3) }}</span>
