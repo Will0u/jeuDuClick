@@ -21,30 +21,42 @@ export class MainComponent implements OnInit {
   randomEventId !: number;
   eventSelected !: RandomEvents ;
   isEventActive = false;
+  cancelGain = 0;
+  tmpGain !: number;
   randomEventFunction() : void {
-    if (Math.random() < 0.02) {
+    if (Math.random() < 0.03) {
       this.isEventActive = true ;
       this.randomEventId = Math.floor(Math.random() * this.randomEventsArray.length)
-      this.eventSelected = this.randomEventsArray[this.randomEventId];
+      this.eventSelected = this.randomEventsArray[this.randomEventId]; 
+
+      document.querySelector("html")!.style.backgroundColor = "rgb(0,0,0,0.4)";
+      document.querySelector("html")!.style.transition = "background-color 1s";
+
+      this.tmpGain = this.gainPerSec;
+      this.gainPerSec = this.cancelGain ;
 
       if (this.eventSelected.gain) {
         this.money += this.eventSelected.gain ;
       } else if (this.eventSelected.perte) {
-        this.money -= this.eventSelected.perte + (30 / 100) * this.money ;
+        this.money *= this.eventSelected.perte;
       } else if (this.eventSelected.perteLevel) {
-        this.level -= this.eventSelected.perteLevel;
+        if (this.level != 0) this.level -= this.eventSelected.perteLevel;
       } else if (this.eventSelected.gainSec) {
-        this.gainPerSec -= this.eventSelected.gainSec;
+        this.tmpGain *= this.eventSelected.gainSec;
       }
-      
-
-    }
+    
+    } else {this.isEventActive = false;}
   }
-
+  closeModal() : void {
+    this.isEventActive = false;
+    this.gainPerSec = this.tmpGain; 
+    document.querySelector("html")!.style.backgroundColor = "unset"; 
+  }
+  // FIN EVENEMENT ALEATOIRE
 
   constructor() { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {       
     setInterval(() => {
       this.money += this.gainPerSec;
     }, 1000);
@@ -77,8 +89,4 @@ export class MainComponent implements OnInit {
     */
   }
 
-  closeModal() : void {
-    this.isEventActive = false;
-  }
-  
 }

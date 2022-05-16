@@ -42,12 +42,32 @@ h1{text-align: center;}
     background-color: lightgray;
     padding: 1rem;
     border-radius: 7px;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .modalHeader{
     display: flex;
     justify-content: space-between;
 }
-.closeBtn{background-color: aqua;}
+.closeBtn{
+    border: 0;
+    background-color: crimson;
+    padding: .7rem;
+    border-radius: 12px;
+    color: white;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-top: .5rem;
+    transition: background-color .4s, box-shadow .4s;
+}
+.closeBtn:hover{
+    background-color: rgb(136, 14, 39);
+    box-shadow: 0px 10px 7px -4px rgba(0,0,0,0.10);
+    transition: background-color .4s, box-shadow .4s;
+}
+.closeBtn:active{transform: scale(0.98);}
 .modalContainer{
     display: flex;
     justify-content: center;

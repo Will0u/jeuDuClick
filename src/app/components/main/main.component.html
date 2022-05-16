@@ -1,13 +1,13 @@
 <h1>Commencer à developper !</h1>
 <div id="mainDiv">
-    <button (click)="clickMoney()" class="clickBtn"></button>
+    <button (click)="clickMoney()" class="clickBtn" *ngIf="!isEventActive"></button>
     <div class="infoContainer">
         <div>
-            <span class="green">{{ money }}</span>
+            <span class="green">{{ money.toFixed(3) }}</span>
             <span>€</span>
         </div>
         <div>
-            <span class="green"> {{ gainPerSec }}</span>
+            <span class="green"> {{ gainPerSec.toFixed(3) }}</span>
             <span>€ par seconde</span>
         </div>
     </div>
@@ -29,10 +29,10 @@
         <h2>{{ eventSelected.nom }}</h2>
         <div class="modalContainer">
             <p>{{ eventSelected.desc }}</p>
-            <p *ngIf="eventSelected.perte" class="red"> Coût des pertes : {{ eventSelected.gain }} €</p>
-            <p *ngIf="eventSelected.gain" class="green"> Vous recevez : {{ eventSelected.gain }} €</p>
-            <p *ngIf="eventSelected.perteLevel" class="red"> Vous perdez : {{ eventSelected.perteLevel }} level.</p>
-            <p *ngIf="eventSelected.gainSec" class="red"> Vous perdez : {{ eventSelected.gainSec }} / s.</p>
+            <p *ngIf="eventSelected.perte" class="red"> Coût des pertes : {{ (money * eventSelected.perte).toFixed(3) }} €</p>
+            <p *ngIf="eventSelected.gain" class="green"> Vous recevez : {{ eventSelected.gain.toFixed(3) }} €</p>
+            <p *ngIf="eventSelected.perteLevel && level != 0" class="red"> Vous perdez : {{ eventSelected.perteLevel }} level.</p>
+            <p *ngIf="eventSelected.gainSec" class="red"> Vous perdez : {{ (tmpGain * eventSelected.gainSec).toFixed(3) }} / s.</p>
         </div>
         <button class="closeBtn" (click)="closeModal()">Okè</button>
     </div>

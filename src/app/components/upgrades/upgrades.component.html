@@ -7,7 +7,7 @@
             <span class="green">{{ upgrades.level }} </span>
             <span>/ {{ upgrades.levelMax }} obtenu(e)s</span>
         </div>
-        <div>
+        <div *ngIf="upgrades.level < upgrades.levelMax">
             <span class="green"> {{ upgrades.parSec }}</span> 
             <span> / s</span>
         </div>

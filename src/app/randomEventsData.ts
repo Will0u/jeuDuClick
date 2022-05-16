@@ -6,7 +6,7 @@ export const RANDOMEVENTS : RandomEvents[] = [
         id:0,
         nom: "Ordinateur en panne",
         desc: "Suite à l'installation de divers logiciels douteux, votre ordinateur est tombé en panne.",
-        gain: - 1500,
+        perte: 60 / 100,
         perteLevel: -1
     },
 
@@ -21,7 +21,7 @@ export const RANDOMEVENTS : RandomEvents[] = [
         id:2,
         nom: "Une gastro un peu trop douloureuse..",
         desc: "Suite à plusieurs Guinguette d'affilé, vous avez choppé une violente diarrhée.",
-        gainSec: - 45 / 100
+        gainSec:  45 / 100
     },
 
     {
